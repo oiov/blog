@@ -1,4 +1,4 @@
-export default function DefaultIcon() {
+export default function DefaultIcon({}: {}) {
   return (
     <svg
       id="iconce.com"

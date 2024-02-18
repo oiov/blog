@@ -5,7 +5,7 @@ import GiscusComment from "./giscus";
 import { Card } from "../components/card";
 import Image from "next/image";
 import { ExternalLink } from "lucide-react";
-import DefaultIcon from "../components/icon";
+import DefaultIcon from "../components/avatar-icon";
 
 export const metadata: Metadata = siteData("留言板 | yesmore");
 
