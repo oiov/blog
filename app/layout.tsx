@@ -13,11 +13,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "yesmore",
     description: "Co-founder of unkey.dev and founder of planetfall.io",
-    url: "https://yesmore.dev",
+    url: "https://dev.yesmore.cc",
     siteName: "yesmore",
     images: [
       {
-        url: "https://yesmore.dev/og.png",
+        url: "https://dev.yesmore.cc/og.png",
         width: 1920,
         height: 1080,
       },

@@ -30,12 +30,17 @@ export const Navigation: React.FC = () => {
             <Link
               href="/projects"
               className="duration-200 text-zinc-400 hover:text-zinc-100">
-              我的项目
+              项目集
             </Link>
             <Link
               href="/contact"
               className="duration-200 text-zinc-400 hover:text-zinc-100">
-              联系方式
+              联系我
+            </Link>
+            <Link
+              href="/comment"
+              className="duration-200 text-zinc-400 hover:text-zinc-100">
+              留言板
             </Link>
           </div>
 

@@ -3,8 +3,9 @@ import React from "react";
 import Particles from "./components/particles";
 
 const navigation = [
-  { name: "我的项目", href: "/projects" },
-  { name: "联系方式", href: "/contact" },
+  { name: "项目集", href: "/projects" },
+  { name: "联系我", href: "/contact" },
+  { name: "留言板", href: "/comment" },
 ];
 
 export default function Home() {
