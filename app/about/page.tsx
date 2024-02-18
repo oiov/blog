@@ -35,7 +35,7 @@ export default function Example() {
       <div className="container min-h-screen px-4 mx-auto py-24">
         <div className="text-zinc-200 text-center mb-10">
           <h2 className="text-zinc-200 font-bold text-xl mb-6">关于我</h2>
-          💁 爱好摄影 | 倒装句患者 | 反射弧略长
+          💁 一只程序员 | 爱好摄影 | 倒装句患者 | 反射弧略长
         </div>
         <div className="text-center">
           <h2 className="text-zinc-200 font-bold text-xl mb-6">联系我</h2>
