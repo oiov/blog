@@ -39,7 +39,7 @@ export default function Example() {
         </div>
         <div className="text-center">
           <h2 className="text-zinc-200 font-bold text-xl mb-6">联系我</h2>
-          <div className="grid w-full grid-cols-1 gap-8 mx-auto mt-32 sm:mt-0 sm:grid-cols-3 lg:gap-16">
+          <div className="grid w-full grid-cols-1 gap-8 mx-auto sm:mt-0 sm:grid-cols-3 lg:gap-16">
             {socials.map((s) => (
               <Card>
                 <Link
