@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { allProjects } from "contentlayer/generated";
+import { allArticles } from "contentlayer/generated";
 import { Mdx } from "@/app/components/mdx";
 import { Header } from "./header";
 import "./mdx.css";
@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props) {
 const redis = Redis.fromEnv();
 
 export async function generateStaticParams(): Promise<Props["params"][]> {
-  return allProjects
+  return allArticles
     .filter((p) => p.published)
     .map((p) => ({
       slug: p.slug,
@@ -33,7 +33,7 @@ export async function generateStaticParams(): Promise<Props["params"][]> {
 
 export default async function PostPage({ params }: Props) {
   const slug = params?.slug;
-  const project = allProjects.find((project) => project.slug === slug);
+  const project = allArticles.find((project) => project.slug === slug);
 
   if (!project) {
     notFound();

@@ -1,10 +1,15 @@
 import Link from "next/link";
 import React from "react";
 import Particles from "./components/particles";
+import { siteData } from "@/config/site";
+import { Metadata } from "next";
+
+export const metadata: Metadata = siteData("yesmore");
 
 const navigation = [
   { name: "项目集", href: "/projects" },
-  { name: "联系我", href: "/contact" },
+  { name: "随手记", href: "/articles" },
+  { name: "关于我", href: "/about" },
   { name: "留言板", href: "/comment" },
 ];
 
