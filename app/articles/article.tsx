@@ -1,6 +1,6 @@
 import type { Article } from "@/.contentlayer/generated";
 import Link from "next/link";
-import { Eye, View } from "lucide-react";
+import { Eye, Pin, View } from "lucide-react";
 
 type Props = {
   article: Article;
@@ -23,10 +23,16 @@ export const ArticleWarpper: React.FC<Props> = ({ article, views }) => {
               <span>SOON</span>
             )}
           </span>
-          <span className="text-zinc-500 text-xs  flex items-center gap-1">
+
+          <span className="text-zinc-500 text-xs flex items-center gap-1 ml-auto">
             <Eye className="w-4 h-4" />{" "}
             {Intl.NumberFormat("en-US", { notation: "compact" }).format(views)}
           </span>
+          {article.top > 0 && (
+            <span className="text-zinc-400 text-xs flex items-center">
+              <Pin className="w-4 h-4" />
+            </span>
+          )}
         </div>
         <h2 className="z-20 mt-1 text-xl font-medium duration-1000 lg:text-3xl text-zinc-200 group-hover:text-white font-display">
           {article.title}
