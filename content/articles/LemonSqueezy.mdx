@@ -1,0 +1,47 @@
+---
+title: 个人开发者如何进行海外收款
+description: 本篇文章主要介绍使用 LemonSqueezy 进行海外收款
+date: "2024-1-21"
+published: true
+---
+
+## 前言
+
+首先，我们要选择支付平台和工具。如果你的产品立足国内，那么用支付宝和微信支付就足够，如果你的产品还想放眼海外，我推荐使用 LemonSqueezy，原因有两个：
+
+- LemonSqueezy 会根据用户所在地区提供不同的付费通道，其中包括微信、支付宝、信用卡和Paypal等全球常见的支付方式。
+- LemonSqueezy 不仅仅是一个支付接入平台，它更像一个完整的解决方案，例如：它可以帮你管理订阅的自动续费，而微信支付、支付宝这样的渠道只有收付款功能，收付款以外的逻辑需要你自己设计开发。
+
+官网：https://www.lemonsqueezy.com
+
+注册使用无门槛，优先推荐。 默认提供了商店页面，用户订单页面，用户可以自己管理订阅，管理 License Key。 先用最简单的方法把钱收进来，以后再换别的支付方式也很简单。
+
+LemonSqueezy 不再支持 payout 到国内银行卡了，但是我亲测依然可以 payout 到 Paypal 的，到 Paypal 就能消费了，买买服务器啥的都可以的，不一定要转到国内来。 另外要注意售卖商品的类型：软件，Saas ，PDF 等电子商品都是允许的，申请开通店铺前仔细看下这个链接，不要是里面禁止售卖的商品。
+
+> https://docs.lemonsqueezy.com/help/getting-started/prohibited-products
+>
+> In April 2023 we changed bank payout providers, increasing our country support by 47 countries. Due to this change, however, the following countries are no longer supported for bank payouts: Brazil, China, Georgia, Nepal, Pakistan, Uganda, Ukraine and Zambia.
+
+LemonSqueezy 提现到 Paypal 要收 3%，最高$30 的手续费。 另外 LemonSqueezy 的费用是 5% + $0.5 每笔交易。 相当于最终到账手续费至少大概 8%（算的可能不精确，但是有个概念就可以）
+
+我的实际感受，小额订阅(5%+$0.5) + 一次性付费(5%) 的混合收费方式，最后的各种费用，paypal 到账只有 83%, 扣掉了 17%。 大家有个心理预期，重点就是先跑起来，初期不要太在意费率问题。
+
+> Payouts via PayPal A flat fee of $0.50 per payout for accounts in the US and 3% capped at $30 per payout for accounts outside the US.
+> 
+> https://docs.lemonsqueezy.com/help/getting-started/fees#payout-fees
+
+我的 SVG 图标生成器工具 [Iconce](https://iconce.com) 的收款就是集成的 LemonSqueezy，丝滑无烦恼。
+
+## 设置 LemonSqueezy 产品
+
+在 LemonSqueezy 的后台，先创建一个产品，在创建产品的侧栏里，要添加两个 vaiant，可以理解为同一个产品的不同型号，跟你网购时一样，添加不同型号可以方便用户在一个产品链接里切换自己想付费购买的服务。
+
+![](/article/ls/1.png)
+
+滚动条滚到底部，在 Confirmation modal 里设置付费成功后的返回地址，默认是跳到 LemonSqueezy 的订单页，建议设置为自己的网站，即用户进入付费页面前的URL。
+
+![](/article/ls/2.png)
+
+然后通过页面上和侧栏卡片里的「…」按钮获取 store_id、product_id 和 variant_id。
+
+未完待续...
