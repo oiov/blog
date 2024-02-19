@@ -17,7 +17,7 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="z-10 mt-32 text-center">
+    <div className="z-10 mt-32 text-center text-white">
       <h2>哦豁，出错了</h2>
 
       <Link href="/">

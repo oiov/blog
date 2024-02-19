@@ -22,9 +22,8 @@ repository: yesmore/github-buibuibui-telegram
 
 ## 开始 Vercel 部署旅程
 
-在这段旅程中，我们将遇到三个神秘的平台：**Github** / **Telegram** / **Vercel**，请确保你已经完成了账号的注册，故事将会以所需的[环境变量](#Vercel-Environment-variables-环境变量)为线索，引导你一步步探索。
+请确保你已经完成了 **Github**、**Telegram**、**Vercel** 三个平台账号的注册，下面以所需的[环境变量](#Vercel-Environment-variables-环境变量)为线索，来完成部署。
 
-**跟随我一起开始旅程吧！**：
 
 **第一步，创造你的 tg 机器人并获取 `TG_TOKEN`**。打开 Telegram，寻找 [@BotFather](https://t.me/BotFather)，创造你属于自己的机器人。BotFather 是 Telegram 中机器人界的传奇人物，他可以协助你创造出小小的机器人。按照他的指导完成创造，一旦完成（即设置好机器人的昵称），BotFather 会向你发送一条信息，里面就包含了 HTTP API Token，也就是你需要的 TG_TOKEN。之后，你将通过这个机器人向 Telegram 的群组/频道发送消息。
 
@@ -40,8 +39,6 @@ repository: yesmore/github-buibuibui-telegram
 `GH_HOOK_SECRET` 需要手动生成，在终端中执行 `ruby -rsecurerandom -e 'puts SecureRandom.hex(20)'`，并保存，接着同方案一操作，注意环境变量 `PROD` 设置为 **true**，并填写 `GH_HOOK_SECRET`。部署成功后，`Payload URL` 就是你的 vercel 预览地址：[https://your-github-repo-name.vercel.app/api]()，将在下一步创建 Hook 使用。
 
 **第六步，为仓库创建 Webhook**，在你想监听的 Github 仓库中，点击 Setting，侧边栏点击 Webhooks，然后点击 add 创建，第一个参数 Payload URL 在第四/五步中获取；Content type 必须为 **application/json**；Secret 按照上述，方案一不用填，方案二填写即可；最后，下方选择中“Which events would you like to trigger this webhook?”，选择你需要监听的仓库事件，然后创建即可，第一次创建会触发一个 Ping 事件，测试是否生效。
-
-> “愉快的代码旅程，从部署开始！”
 
 ![](https://i.postimg.cc/C5qWP3sL/hook.png)
 
@@ -75,10 +72,6 @@ repository: yesmore/github-buibuibui-telegram
 
 
 > 所有 handler 在 [event_handler.js]([/core/event_handler.js](https://github.com/yesmore/gh-buibuibui-tg/blob/main/core/event_handler.js)) 中查看
-
-### 推送原理
-
-git push -> touch Github webhooks then call Vercel's api (http post) -> catch event then handle it -> use Telegram's open api to send event message. 
 
 ## 参考资料
 
