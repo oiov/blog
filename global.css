@@ -9,12 +9,12 @@
 }
 
 *::-webkit-scrollbar {
-  width: 0px;
+  width: 6px;
   height: 10px;
 }
 
 *::-webkit-scrollbar-thumb {
-  background: hsla(215, 10%, 77%, 0);
+  background: hsla(215, 10%, 77%, 0.548);
   border-radius: 4px;
 }
 *::-webkit-scrollbar-thumb:hover {

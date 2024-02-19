@@ -25,6 +25,11 @@ const links = [
     url: "https://www.aitimi.cn",
     icon: "https://www.aitimi.cn/favicon.ico",
   },
+  {
+    title: "royalknight",
+    url: "https://blog.myim.online/blog/index.html",
+    icon: "https://blog.myim.online/lib/media/favicon.png",
+  },
 ];
 
 export default function Example() {
