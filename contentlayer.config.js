@@ -72,6 +72,10 @@ export const Article = defineDocumentType(() => ({
     repository: {
       type: "string",
     },
+    top: {
+      type: "number",
+      default: 0,
+    },
   },
   computedFields,
 }));

@@ -30,7 +30,8 @@ export default async function ProjectsPage() {
       (a, b) =>
         new Date(b.date ?? Number.POSITIVE_INFINITY).getTime() -
         new Date(a.date ?? Number.POSITIVE_INFINITY).getTime()
-    );
+    )
+    .sort((a, b) => b.top - a.top);
 
   return (
     <div className="relative pb-16">
