@@ -9,6 +9,7 @@ const nextConfig = {
       "mggg.cloud",
       "zhulijun.club",
       "www.aitimi.cn",
+      "gcloud-1303456836.cos.ap-chengdu.myqcloud.com",
     ],
   },
   experimental: {
