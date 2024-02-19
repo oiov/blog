@@ -18,11 +18,11 @@ export default function Error({
 
   return (
     <div className="z-10 mt-32 text-center">
-      <h2>Oops, Something went wrong!</h2>
+      <h2>哦豁，出错了</h2>
 
       <Link href="/">
         <button className="mt-4 rounded-md border px-4 py-2 text-sm hover:border-gray-800">
-          Back to home
+          回到首页
         </button>
       </Link>
 
