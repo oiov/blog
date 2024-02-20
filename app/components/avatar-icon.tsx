@@ -14,29 +14,8 @@ export default function DefaultIcon({}: {}) {
           gradientUnits="userSpaceOnUse"
           gradientTransform="rotate(45)"
           style={{ transformOrigin: "center center" }}>
-          <animateTransform
-            attributeName="gradientTransform"
-            type="rotate"
-            values="0;360"
-            dur="5s"
-            repeatCount="indefinite"
-          />
-          <stop stopColor="#5C5C5C">
-            <animate
-              attributeName="stop-color"
-              values="#5C5C5C;#0F1015;#5C5C5C"
-              dur="3s"
-              repeatCount="indefinite"
-            />
-          </stop>
-          <stop offset="1" stopColor="#0F1015">
-            <animate
-              attributeName="stop-color"
-              values="#0F1015;#5C5C5C;#0F1015"
-              dur="3s"
-              repeatCount="indefinite"
-            />
-          </stop>
+          <stop stopColor="#5C5C5C"></stop>
+          <stop offset="1" stopColor="#0F1015"></stop>
         </linearGradient>
         <radialGradient
           id="r6"

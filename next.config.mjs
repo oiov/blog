@@ -11,6 +11,7 @@ const nextConfig = {
       "www.aitimi.cn",
       "gcloud-1303456836.cos.ap-chengdu.myqcloud.com",
       "blog.myim.online",
+      "next.blackcell.fun",
     ],
   },
   experimental: {

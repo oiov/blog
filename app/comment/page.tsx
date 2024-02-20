@@ -30,6 +30,16 @@ const links = [
     url: "https://blog.myim.online/blog/index.html",
     icon: "https://blog.myim.online/lib/media/favicon.png",
   },
+  {
+    title: "Blackcell",
+    url: "https://next.blackcell.fun/",
+    icon: "https://next.blackcell.fun/favicon.ico",
+  },
+  {
+    title: "lezhi blog",
+    url: "https://zlzzlzlz.github.io",
+    icon: "",
+  },
 ];
 
 export default function Example() {
