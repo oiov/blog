@@ -33,7 +33,7 @@ const links = [
   {
     title: "Blackcell",
     url: "https://next.blackcell.fun/",
-    icon: "https://next.blackcell.fun/favicon.ico",
+    icon: "/friends/blackcell.ico",
   },
   {
     title: "lezhi blog",
