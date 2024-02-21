@@ -18,7 +18,11 @@ type Props = {
 export async function generateMetadata({ params }: Props) {
   const slug = params.slug;
 
-  return siteData(`${slug} | yesmore`);
+  return siteData(
+    `${
+      allProjects.filter((p) => p.slug === slug)[0].title ?? "Untitled"
+    } | yesmore`
+  );
 }
 
 const redis = Redis.fromEnv();
