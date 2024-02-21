@@ -50,7 +50,7 @@ export default async function ProjectsPage() {
             项目集
           </h2>
           <p className="mt-4 text-zinc-400">
-            你做出一样很酷的东西出来，想给他起什么名都可以
+            你做出一个很酷的东西出来，想给他起什么名都可以
           </p>
         </div>
         <div className="w-full h-px bg-zinc-800" />

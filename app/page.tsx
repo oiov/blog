@@ -40,7 +40,7 @@ export default function Home() {
       <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
       <div className="my-16 text-center animate-fade-in">
         <h2 className="text-sm text-zinc-500 mb-1">
-          你做出一样很酷的东西出来，想给他起什么名都可以
+          你做出一个很酷的东西出来，想给他起什么名都可以
         </h2>
         <p className="text-sm text-zinc-500">Copyright © yesmore 2021-2024</p>
       </div>
