@@ -11,6 +11,7 @@ const navigation = [
   { name: "随手记", href: "/articles" },
   { name: "关于我", href: "/about" },
   { name: "留言板", href: "/comment" },
+  { name: "AI", href: "https://ai.oihub.cc" },
 ];
 
 export default function Home() {
@@ -33,7 +34,7 @@ export default function Home() {
         className="absolute inset-0 -z-10 animate-fade-in"
         quantity={100}
       />
-      <h1 className="z-10 text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text ">
+      <h1 className="z-10 text-5xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text ">
         yesmore
       </h1>
 
