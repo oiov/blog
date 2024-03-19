@@ -7,6 +7,8 @@ published: true
 repository: yesmore/vmail
 ---
 
+> 最新文档请前往仓库：[yesmore/vmail](https://github.com/yesmore/vmail)
+
 ## Vmail
 
 使用 Cloudflare email worker 实现的临时电子邮件服务。
@@ -28,12 +30,12 @@ demo：https://vmail.dev
 ### 准备工作
 
 - [Cloudflare](https://dash.cloudflare.com/) 账户（email worker）
-- 托管在Cloudflare上的域名
+- 托管在 Cloudflare 上的域名
 - [turso](https://turso.tech) sqlite（个人免费计划足够）
 
 ### 步骤
 
-1.**注册一个 [turso](https://turso.tech) 账户，创建数据库，并创建一个`emails`表**
+**1.注册一个 [turso](https://turso.tech) 账户，创建数据库，并创建一个`emails`表**
 
 注册后，系统会提示您创建一个数据库。在这里我将其命名为 `vmail`，
 
@@ -49,7 +51,7 @@ demo：https://vmail.dev
 
 Cli文档：https://docs.turso.tech/cli/introduction 
 
-Linux 终端执行：
+Linux (或 mac/windows) 终端执行：
 
 ```bash
 # 安装（安装后记得重启终端生效）
@@ -90,7 +92,7 @@ CREATE TABLE `emails` (
 );
 ```
 
-2.**部署 email worker**
+**2.部署 email worker**
 
 ```bash
 git clone https://github.com/yesmore/vmail
@@ -105,23 +107,26 @@ pnpm install
 
 - TURSO_DB_AUTH_TOKEN（第1步中的turso表信息，点击“Generate Token”）
 - TURSO_DB_URL（例如 libsql://db-name.turso.io）
-
+- EMAIL_DOMAIN (域名，如 vmail.dev)
+  
 > 如果您不执行此步骤，可以在Cloudflare的 worker settings 中添加环境变量
 
 然后运行命令：
 
 ```bash
 cd apps/email-worker
+
+# 需要node环境
 pnpm run deploy
 ```
 
-3.**配置电子邮件路由规则**
+**3.配置电子邮件路由规则**
 
 设置“Catch-all”动作为发送到emial worker。
 
 ![](https://img.inke.app/file/fa39163411cd35fad0a7f.png) 
 
-4.**在 Vercel 或 fly.io 上部署 Remix 应用程序**
+**4.在 Vercel 或 fly.io 上部署 Remix 应用程序**
 
 确保在部署期间准备并填写以下环境变量（`.env.example`）：
 
@@ -130,7 +135,24 @@ pnpm run deploy
 - TURNSTILE_SECRET
 - TURSO_DB_RO_AUTH_TOKEN（从turso获取数据库凭据）
 - TURSO_DB_URL
+- EMAIL_DOMAIN (e.g. vmail.dev)
+  
+**5.部署成功后在 cloudflare 添加域名解析到对应平台，就可以愉快的玩耍了**
 
-部署成功后在 cloudflare 添加域名解析到对应平台，就可以愉快的玩耍了。
+这里用 vercel 演示：
+
+![](https://img.inke.app/file/245b71636cd16afcf93c7.png)
+
+![](https://img.inke.app/file/e10af19334fd6a13b7d2e.png)
 
 以上，完成！
+
+## License
+
+GNU General Public License v3.0
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=yesmore/vmail&type=Date)](https://star-history.com/#yesmore/vmail&Date)
+
+Inspired by smail.pw & email.ml
