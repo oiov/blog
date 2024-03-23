@@ -40,6 +40,11 @@ const links = [
     url: "https://zlzzlzlz.github.io",
     icon: "",
   },
+  {
+    title: "Gholts' Blog",
+    url: "https://blog.gholts.top",
+    icon: "https://avatars.githubusercontent.com/u/104642670?v=4",
+  },
 ];
 
 export default function Example() {
@@ -54,7 +59,7 @@ export default function Example() {
               <a
                 href={link.url}
                 target="_blank"
-                className="p-3 block w-36 md:w-56">
+                className="p-3 block w-40 md:w-56">
                 <div className="mb-1 flex justify-between items-start">
                   {link.icon ? (
                     <Image
@@ -76,7 +81,9 @@ export default function Example() {
         </div>
 
         <h2 className="text-zinc-200 font-bold text-xl mb-6">留言区</h2>
-        <GiscusComment />
+        <div className="max-w-screen-md w-full ">
+          <GiscusComment />
+        </div>
       </div>
     </div>
   );
