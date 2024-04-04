@@ -1,11 +1,11 @@
 import { Navigation } from "../components/nav";
 import { siteData } from "@/config/site";
 import { Metadata } from "next";
-import GiscusComment from "./giscus";
 import { Card } from "../components/card";
 import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 import DefaultIcon from "../components/avatar-icon";
+import TwikooComment from "./twikoo";
 
 export const metadata: Metadata = siteData("留言板 | yesmore");
 
@@ -47,9 +47,9 @@ const links = [
   },
 ];
 
-export default function Example() {
+export default function Comment() {
   return (
-    <div className=" bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
+    <div className="bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
       <Navigation />
       <div className="container flex flex-col items-center min-h-screen px-4 mx-auto py-24">
         <h2 className="text-zinc-200 font-bold text-xl mb-6">友情链接</h2>
@@ -81,8 +81,9 @@ export default function Example() {
         </div>
 
         <h2 className="text-zinc-200 font-bold text-xl mb-6">留言区</h2>
-        <div className="max-w-screen-md w-full ">
-          <GiscusComment />
+        <div className="max-w-screen-md w-full">
+          <TwikooComment />
+          <span id="twikoo_visitors">0</span>
         </div>
       </div>
     </div>
