@@ -24,7 +24,7 @@ const socials = [
     icon: <Gitlab size={20} />,
     href: "https://gitlab.com/unvc",
     label: "Gitlab",
-    handle: "unvc",
+    handle: "Juiçe",
   },
   // {
   //   icon: <Github size={20} />,
