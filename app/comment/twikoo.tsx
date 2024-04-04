@@ -18,8 +18,7 @@ export default function TwikooComment() {
           pageSize: 10,
           includeReply: true,
           lang: "zh-CN",
-          path: location.pathname,
-          theme: "dark",
+          path: location.pathname
         });
       `;
       initScript.id = "twikoo-init-id";

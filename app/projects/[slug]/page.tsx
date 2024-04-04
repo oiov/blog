@@ -6,6 +6,7 @@ import "./mdx.css";
 import { ReportView } from "./view";
 import { Redis } from "@upstash/redis";
 import { siteData } from "@/config/site";
+import TwikooComment from "@/app/comment/twikoo";
 
 export const revalidate = 60;
 
@@ -54,6 +55,10 @@ export default async function PostPage({ params }: Props) {
       <article className="px-4 py-12 mx-auto prose prose-zinc prose-quoteless">
         <Mdx code={project.body.code} />
       </article>
+
+      <div className="max-w-screen-md w-full mx-auto py-6 px-4 border-t border-zinc-200">
+        <TwikooComment />
+      </div>
     </div>
   );
 }
