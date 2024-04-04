@@ -4,19 +4,17 @@ description: 使用 Cloudflare email worker 实现的临时电子邮件服务
 date: "2024-03-15"
 url: https://vmail.dev
 published: true
-repository: yesmore/vmail
 ---
 
-> 最新文档请前往仓库：[yesmore/vmail](https://github.com/yesmore/vmail)
+> 最新文档请前往仓库：[unvc/vmail](https://gitlab.com/unvc/vmail)
 
 
 <div align="center">
   <h1>𝐕𝐌𝐀𝐈𝐋.𝐃𝐄𝐕</h1>
+  <p><a href="https://github.com/yesmore/vmail/blob/main/README_en.md">English</a> | 简体中文</p>
   <p>使用 Cloudflare email worker 实现的临时电子邮件服务</p>
   <img src="https://img.inke.app/file/beb0212f96c6cd37eaeb8.jpg"/>
 </div>
-
-<p align="right"><a href="https://github.com/yesmore/vmail/blob/main/README_en.md">English</a> | 简体中文</p>
 
 ## 🌈 特点
 
@@ -71,11 +69,12 @@ turso auth login
 turso db shell <database-name>
 ```
 
-将sql脚本复制到终端运行（[0000_sturdy_arclight.sql](/packages/database/drizzle/0000_sturdy_arclight.sql)）
+将sql脚本复制到终端运行（packages/database/drizzle/0000_sturdy_arclight.sql）
 
 <details>
 <summary>查看脚本内容</summary>
-<pre><code>CREATE TABLE `emails` (
+<pre >
+CREATE TABLE `emails` (
  `id` text PRIMARY KEY NOT NULL,
  `message_from` text NOT NULL,
  `message_to` text NOT NULL,
@@ -97,7 +96,8 @@ turso db shell <database-name>
  `text` text,
  `created_at` integer NOT NULL,
  `updated_at` integer NOT NULL
-);</code></pre>
+);
+</pre>
 </details>
 
 **2.部署 email worker**
@@ -150,12 +150,18 @@ pnpm run deploy
 
 **Vercel:** 
 
-然后将代码推送到你的 Github 仓库，并在 Vercel 面板中创建项目。选择 `New project`，然后导入对应的 Github 仓库，填写环境变量，选择 `Remix` 框架，点击 `Deploy`，等待部署完成。
+推荐使用一键部署按钮（一步 `fork + deploy` 此仓库）：
 
-一些 Vercel 面板项目设置 (General)：
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgitlab.com%2Funvc%2Fvmail&env=COOKIES_SECRET&env=TURNSTILE_KEY&env=TURNSTILE_SECRET&env=TURSO_DB_RO_AUTH_TOKEN&env=TURSO_DB_URL&env=EMAIL_DOMAIN&project-name=vmail&repository-name=vmail)
+
+或手动将代码推送到你的 Github 仓库，并在 Vercel 面板中创建项目。选择 `New project`，然后导入对应的 Github 仓库，填写环境变量，选择 `Remix` 框架，点击 `Deploy`，等待部署完成。
+
+部署完后继续点击 Countinu to Dashboard，进入 Settings -> General，修改下面设置：
 
 ![](https://img.inke.app/file/573f842ccbefdf8daf319.png)
 ![](https://img.inke.app/file/36c1566d8c27735bb097d.png)
+
+**然后进入 Deployments 重新部署一次，或向 github 推送代码重新触发部署**。
 
 **fly.io:** 
 
@@ -201,7 +207,3 @@ Please check out these previous works that helped inspire the creation of vmail.
 ## 📝 License
 
 GNU General Public License v3.0
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=yesmore/vmail&type=Date)](https://star-history.com/#yesmore/vmail&Date)
