@@ -1,4 +1,4 @@
-import { Github, Mail, Twitter } from "lucide-react";
+import { Gitlab, Mail, Twitter } from "lucide-react";
 import Link from "next/link";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
@@ -16,16 +16,22 @@ const socials = [
   },
   {
     icon: <Mail size={20} />,
-    href: "mailto:songsonghhhh@gmail.com",
+    href: "mailto:yesmorecc@163.com",
     label: "Email",
-    handle: "songsonghhhh@gmail.com",
+    handle: "yesmorecc@163.com",
   },
   {
-    icon: <Github size={20} />,
-    href: "https://github.com/yesmore",
-    label: "Github",
-    handle: "yesmore",
+    icon: <Gitlab size={20} />,
+    href: "https://gitlab.com/unvc",
+    label: "Gitlab",
+    handle: "unvc",
   },
+  // {
+  //   icon: <Github size={20} />,
+  //   href: "https://github.com/yesmore",
+  //   label: "Github",
+  //   handle: "yesmore",
+  // },
 ];
 
 export default function Example() {
@@ -37,9 +43,6 @@ export default function Example() {
           <h2 className="text-zinc-200 font-bold text-xl mb-6">关于我</h2>
           <p className="mb-1">💁 是程序员 ‣ 独立开发者 ‣ 做出海应用</p>
           <p className="mb-1">✨ 爱好摄影 ‣ 倒装句患者 ‣ 反射弧略长</p>
-          <p>
-            公众号 <em className=" font-mono">喵与自然</em>
-          </p>
         </div>
         <div className="text-center">
           <h2 className="text-zinc-200 font-bold text-xl mb-6">联系我</h2>
