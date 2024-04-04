@@ -81,9 +81,8 @@ export default function Comment() {
         </div>
 
         <h2 className="text-zinc-200 font-bold text-xl mb-6">留言区</h2>
-        <div className="max-w-screen-md w-full">
+        <div className="max-w-screen-md w-full text-white">
           <TwikooComment />
-          <span id="twikoo_visitors">0</span>
         </div>
       </div>
     </div>

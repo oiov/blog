@@ -4,7 +4,6 @@ import { useEffect } from "react";
 
 export default function TwikooComment() {
   useEffect(() => {
-    // 通过 CDN 引入 twikoo js 文件
     const cdnScript = document.createElement("script");
     cdnScript.src =
       "https://cdn.staticfile.org/twikoo/1.6.32/twikoo.all.min.js";
