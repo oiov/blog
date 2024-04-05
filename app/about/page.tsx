@@ -22,9 +22,9 @@ const socials = [
   },
   {
     icon: <Gitlab size={20} />,
-    href: "https://gitlab.com/unvc",
-    label: "Gitlab",
-    handle: "Juiçe",
+    href: "https://gitlab.com/oiov",
+    label: "Github",
+    handle: "oiov",
   },
   // {
   //   icon: <Github size={20} />,
