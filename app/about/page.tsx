@@ -22,7 +22,7 @@ const socials = [
   },
   {
     icon: <Gitlab size={20} />,
-    href: "https://gitlab.com/oiov",
+    href: "https://github.com/oiov",
     label: "Github",
     handle: "oiov",
   },

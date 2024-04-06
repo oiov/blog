@@ -3,7 +3,7 @@ title: github-buibuibui-telegram
 description: 使用 Github Webhooks、Vercel、Telegram Bot，向 Telegram 推送 Github 仓库消息
 date: "2023-2-07"
 published: true
-repository: yesmore/github-buibuibui-telegram
+repository: oiov/github-buibuibui-telegram
 ---
 
 <div align="center">
@@ -16,7 +16,7 @@ repository: yesmore/github-buibuibui-telegram
 
 借助 Github 的 Webhooks、Vercel's Serverless API 和 Telegram Bot，连接 Github 和 Telegram，在 Telegram chat 中接收仓库的消息。
 
-> 效果：你给仓库 [yesmore/aka.js](https://github.com/yesmore/aka.js) 点了 star，你的 telegram 频道/群组将会收到一个包含各种元数据(可选)的点赞信息, 其他 Github 事件同理。
+> 效果：你给仓库 [oiov/aka.js](https://github.com/oiov/aka.js) 点了 star，你的 telegram 频道/群组将会收到一个包含各种元数据(可选)的点赞信息, 其他 Github 事件同理。
 
 > 这是部署在我的 tg 群组：[https://t.me/yesmore_cc](https://t.me/yesmore_cc)，并附带了一些机器人交互指令，发送 `/help` 查看使用说明，欢迎加入～
 
@@ -33,7 +33,7 @@ repository: yesmore/github-buibuibui-telegram
 
 两个参数是互斥的，即你可以选择**方案一**：不填写 `GH_HOOK_SECRET`，同时设置 `PROD` 为 **false**，因为非生产环境会忽略 secret 校验；或者选择**方案二**：填写 `GH_HOOK_SECRET`，设置 `PROD` 为 **true**。
 
-**第四步，如果你选择方案一**。点击下方的【**Deploy**】按钮开始部署到 Vercel。此按钮的行为是：跳转到 Vercel 部署页面，提示你克隆本[仓库](https://github.com/yesmore/gh-buibuibui-tg)到你的 Github 账号下，输入仓库名称后（可同名，本质就是 fork 此仓库），点击 create，然后填写 Environment variables 环境变量，注意 `PROD` 设置为 **false**，点击部署。
+**第四步，如果你选择方案一**。点击下方的【**Deploy**】按钮开始部署到 Vercel。此按钮的行为是：跳转到 Vercel 部署页面，提示你克隆本[仓库](https://github.com/oiov/gh-buibuibui-tg)到你的 Github 账号下，输入仓库名称后（可同名，本质就是 fork 此仓库），点击 create，然后填写 Environment variables 环境变量，注意 `PROD` 设置为 **false**，点击部署。
 
 **第五步，如果选择方案二**（若已经用方案一部署过，可以编辑修改 Vercel 环境变量即可）。根据文档 [Github Webhooks](https://docs.github.com/zh/developers/webhooks-and-events/webhooks/about-webhooks)，
 `GH_HOOK_SECRET` 需要手动生成，在终端中执行 `ruby -rsecurerandom -e 'puts SecureRandom.hex(20)'`，并保存，接着同方案一操作，注意环境变量 `PROD` 设置为 **true**，并填写 `GH_HOOK_SECRET`。部署成功后，`Payload URL` 就是你的 vercel 预览地址：[https://your-github-repo-name.vercel.app/api]()，将在下一步创建 Hook 使用。
@@ -71,7 +71,7 @@ repository: yesmore/github-buibuibui-telegram
   - [ ] ...
 
 
-> 所有 handler 在 [event_handler.js]([/core/event_handler.js](https://github.com/yesmore/gh-buibuibui-tg/blob/main/core/event_handler.js)) 中查看
+> 所有 handler 在 [event_handler.js]([/core/event_handler.js](https://github.com/oiov/gh-buibuibui-tg/blob/main/core/event_handler.js)) 中查看
 
 ## 参考资料
 
