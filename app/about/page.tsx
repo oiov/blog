@@ -1,4 +1,4 @@
-import { Gitlab, Mail, Twitter } from "lucide-react";
+import { Github, Mail, Twitter } from "lucide-react";
 import Link from "next/link";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
@@ -21,7 +21,7 @@ const socials = [
     handle: "yesmorecc@163.com",
   },
   {
-    icon: <Gitlab size={20} />,
+    icon: <Github size={20} />,
     href: "https://github.com/oiov",
     label: "Github",
     handle: "oiov",

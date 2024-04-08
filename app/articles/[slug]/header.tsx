@@ -73,7 +73,7 @@ export const Header: React.FC<Props> = ({ project, views }) => {
                 } `}
               />
             </Link>
-            {/* <Link target="_blank" href="https://github.com/yesmore">
+            <Link target="_blank" href="https://github.com/oiov">
               <Github
                 className={`w-6 h-6 duration-200 hover:font-medium ${
                   isIntersecting
@@ -81,7 +81,7 @@ export const Header: React.FC<Props> = ({ project, views }) => {
                     : "text-zinc-600 hover:text-zinc-900"
                 } `}
               />
-            </Link> */}
+            </Link>
           </div>
 
           <Link

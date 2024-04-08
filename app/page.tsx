@@ -11,7 +11,7 @@ const navigation = [
   { name: "随手记", href: "/articles" },
   { name: "关于我", href: "/about" },
   { name: "留言板", href: "/comment" },
-  { name: "ChatGPT", href: "https://ai.oihub.cc" },
+  { name: "GPT", href: "https://ai.oihub.cc" },
 ];
 
 export default function Home() {
@@ -43,7 +43,15 @@ export default function Home() {
         <h2 className="text-sm text-zinc-500 mb-1">
           你做出一个很酷的东西出来，想给他起什么名都可以
         </h2>
-        <p className="text-sm text-zinc-500">Copyright © yesmore 2021-2024</p>
+        <div className="text-sm text-zinc-500">
+          Copyright © yesmore 2021-2024
+          <Link
+            className="text-gray-300 text-sm hover:text-gray-500 mx-1"
+            href="https://status.vmail.dev"
+            target="_blank">
+            · Status
+          </Link>
+        </div>
       </div>
     </div>
   );
