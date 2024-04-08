@@ -11,7 +11,7 @@ const navigation = [
   { name: "随手记", href: "/articles" },
   { name: "关于我", href: "/about" },
   { name: "留言板", href: "/comment" },
-  { name: "GPT", href: "https://ai.oihub.cc" },
+  { name: "GPT", href: "https://chat.vmail.dev" },
 ];
 
 export default function Home() {
