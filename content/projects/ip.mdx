@@ -1,0 +1,37 @@
+---
+title: IP 信息获取工具
+description: 利用 Cloudflare Workers 搭建的获取 IP 地址和地理位置信息的接口。
+date: "2024-04-14"
+url: https://ip.vmail.dev
+published: true
+repository: oiov/ip
+---
+
+## 使用方式
+
+### IP
+
+通过访问 Cloudflare 获取本机 IP：`curl https://ip.vmail.dev` 或者直接访问 https://ip.vmail.dev
+
+### IP GEO
+
+通过访问 Cloudflare 获取本机 IP 地理位置信息, `curl https://ip.vmail.dev/geo` 或者直接访问 https://ip.vmail.dev/geo
+
+> HTTP 响应头 `x-client-ip` 也是用户 IP 地址。
+
+GEO 信息格式：
+
+```json
+{
+    "ip": "142.171.116.110",
+    "city": "Los Angeles",
+    "country": "US",
+    "flag": "🇺🇸",
+    "countryRegion": "California",
+    "region": "LAX",
+    "latitude": "34.05440",
+    "longitude": "-118.24410",
+    "asOrganization": "Multacom Corporation"
+}
+```
+
