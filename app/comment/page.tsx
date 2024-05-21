@@ -27,8 +27,8 @@ const links = [
   },
   {
     title: "royalknight",
-    url: "https://blog.myim.online/blog/index.html",
-    icon: "https://blog.myim.online/lib/media/favicon.png",
+    url: "https://vtron.site/blog/index.html",
+    icon: "",
   },
   {
     title: "Blackcell",
