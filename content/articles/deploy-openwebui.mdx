@@ -1,0 +1,108 @@
+---
+title: 使用宝塔 Docker 部署 open-webui 服务 
+description: 只需10分钟，部署你的 LLM 站点
+date: "2024-5-23"
+published: true
+url: https://chat.sorapi.dev
+---
+
+本篇文章将介绍使用宝塔 Docker 快速部署 open-webui 服务。
+
+- Open WebUI 官方仓库：[open-webui](https://github.com/open-webui/open-webui)
+- 博主部署好的站点示例：[OiChat](https://chat.sorapi.dev)
+
+![](https://img.vmail.dev/api/img/mG2AA4)
+![](https://img.vmail.dev/api/img/ZzDSza)
+![](https://img.vmail.dev/api/img/HTTFr4)
+![](https://img.vmail.dev/api/img/J4znWj)
+
+> 目前演示站点 [OiChat](https://chat.sorapi.dev) 已开启了`pending`注册模式，即注册后需要博主本人激活你的账号，若需激活，请在本文章留言区评论【激活】+ **注册昵称**
+
+![](https://img.vmail.dev/api/img/Tnbt4E)
+
+## 准备工作
+
+- 一台安装了宝塔面板的 VPS 服务器（教程使用 Ubuntu 20.x 发行版）
+- 在宝塔中安装 Docker 环境（略）
+
+## 快速开始
+
+- 使用 SSH 工具或在宝塔面板中打开`终端`连接到 VPS 服务器
+- 创建一个文件夹，用来存放项目相关文件，命令如下：
+
+```bash
+mkdir openwebui
+cd openwebui
+
+touch docker-compose.yml
+```
+
+`docker-compose.yml` 文件内容如下：
+
+```yaml 
+services:
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:${WEBUI_DOCKER_TAG-main}
+    container_name: open-webui
+    volumes:
+      - ./data:/app/backend/data
+    ports:
+      - 8080:8080
+    environment:
+      - 'WEBUI_SECRET_KEY=123456789'
+      # openai 配置
+      - 'OPENAI_API_BASE_URL=https://api.openai.com/v1'
+      - 'OPENAI_API_KEY=sk-xxxx'
+      # 启用openai画图
+      - 'ENABLE_IMAGE_GENERATION=true'
+      - 'IMAGE_GENERATION_ENGINE=openai'
+      # 开启注册登录功能
+      - 'WEBUI_AUTH=true'
+      - 'ENABLE_SIGNUP=true'
+      - 'DEFAULT_USER_ROLE=user'
+      # 忽略部分模型(关闭)
+      - 'ENABLE_MODEL_FILTER=false'
+      - 'MODEL_FILTER_LIST=tts-az-1;tts-1'
+      - 'WEBUI_NAME=OiChat'
+      # 默认模型
+      - 'DEFAULT_MODELS=gpt-4o' 
+    restart: unless-stopped
+```
+
+> 部分环境变量可根据自己需求修改，参考[官方文档](https://docs.openwebui.com/getting-started/env-configuration)。
+
+- 启动服务 (确保在 docker-compose.yml 所在目录下执行)：
+
+```bash
+docker-compose up -d
+```
+
+等待 1-2 分钟后，服务差不多就启动了。
+
+- 访问 open-webui 服务，地址为：http://服务器IP:8080
+
+## 配置域名（反向代理）
+
+- 打开宝塔面板，左侧菜单中点击`网站`，继续点击`添加站点`
+- 创建反向代理：
+
+![](https://img.vmail.dev/api/img/3An46x)
+
+接下来直接访问绑定的域名就能使用啦~
+
+## 关于数据库
+
+open-webui 使用的是 SQLite，成功构建容器后会在前面创建的 `openwebui` 目录下生成 `data` 文件夹，里面有 `webui.db` 文件，这是 open-webui 的数据库文件。
+
+为了方便管理，我用宝塔面板安装了 SQLite 数据库环境，将数据库文件导入进去就能方便的操作了。
+
+- 点击面板侧边栏`数据库`，选择 `SQLite`，点击`添加数据库文件`，定位到你创建的文件即可
+
+![](https://img.vmail.dev/api/img/Jt4iMJ)
+
+添加后，可以方便的查看数据库内容，比如重置管理员密码，官方文档提供的重置密码步骤([文档](https://docs.openwebui.com/troubleshooting/#reset-admin-password))需要安装`htpasswd`工具，
+这里直接手动修改即可（不知道怎么加密可以先注册另外一个账号，复制加密后的密码即可）
+
+最后，如果你没有 API，推荐使用博主搭建的免费中转：[Sorapi](https://platform.sorapi.dev)
+
+> 文章首发：[Yesmore/deploy-openwebui](https://dev.yesmore.cc/articles/deploy-openwebui)，转载请注明出处
