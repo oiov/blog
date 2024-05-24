@@ -11,7 +11,7 @@ const navigation = [
   { name: "随手记", href: "/articles" },
   { name: "关于我", href: "/about" },
   { name: "留言板", href: "/comment" },
-  { name: "频道", href: "https://im.vmail.dev/invite/BO91jwnd" },
+  { name: "GPT", href: "https://chat.sorapi.dev" },
 ];
 
 export default function Home() {
