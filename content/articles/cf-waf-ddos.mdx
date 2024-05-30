@@ -1,0 +1,113 @@
+---
+title: 如何用 Cloudflare WAF 防止 DDOS
+description: 
+date: "2024-5-30"
+published: true
+---
+
+## CF WAF 防御
+
+#### 1.DNS 开启小黄云代理，防止原IP泄露
+
+![](https://img.vmail.dev/api/img/YkD2ks)
+
+#### 2.您的 SSL/TLS 加密模式为 完全（严格）
+
+![](https://img.vmail.dev/api/img/PhjjXT)
+
+#### 3.设置防火墙 (WAF)
+
+> 入口：安全性 – WAF
+
+##### 3.1 自定义规则
+
+建议设置3个规则，自己、SEO爬虫 和 恶意流量。
+
+###### 3.1.1 放行自己原站IP
+
+- 规则名称 : 自己
+- 编辑表达式，填写正则表达式。替换IP，没有ipv6可去除
+
+![](https://img.vmail.dev/api/img/RCDNki)
+
+> (ip.src eq 172.123.5.81) or (ip.src eq 2a03:94e1:2465:e6f::f190)
+
+- 其余按图设置
+
+![](https://img.vmail.dev/api/img/ec57SF)
+
+###### 3.1.2 放行SEO爬虫
+
+- 规则名称 : SEO爬虫
+- 编辑表达式
+
+```shell
+(cf.client.bot) or (http.user_agent contains "duckduckgo") or (http.user_agent contains "facebookexternalhit") or (http.user_agent contains "Feedfetcher-Google") or (http.user_agent contains "LinkedInBot") or (http.user_agent contains "Mediapartners-Google") or (http.user_agent contains "msnbot") or (http.user_agent contains "Slackbot") or (http.user_agent contains "TwitterBot") or (http.user_agent contains "ia_archive") or (http.user_agent contains "yahoo")
+```
+
+- 其余按图设置
+
+![](https://img.vmail.dev/api/img/ec57SF)
+
+###### 3.1.3 质询恶意流量
+
+- 规则名称 : 恶意流量
+- 编辑表达式
+
+```shell
+(cf.threat_score ge 5 and not cf.client.bot) or (not http.request.version in {"HTTP/2" "HTTP/3"}) or (not ip.geoip.country in {"HK" "JP" "SG" "GB" "US" "CN"}) or (ip.src in {2000::/3}) or (cf.client.bot)
+```
+
+- 其余按图设置
+
+![](https://img.vmail.dev/api/img/YrsDJb)
+
+这里说明三个地方：
+
+- HTTP版本：低版本HTTP协议防止部分脚本攻击，放行HTTP/2和HPPT/3
+- 国家/地区：放行主要客户群体所在地国家
+- 阻止大部分V6地址2000::/3
+
+![](https://img.vmail.dev/api/img/jzfsXw)
+
+##### 3.2 速率限制规则
+
+- 规则名称：恶意流量
+- 设置限速路径，下面路径是整站全部
+
+![](https://img.vmail.dev/api/img/7w6N5n)
+
+- 其它设置。免费账号功能太少，可设置只有请求数，这里看个人需求
+
+![](https://img.vmail.dev/api/img/CsQBEz)
+
+### 重点
+
+- 跟着操做到这里，你基本已经知道 CF WAF 防御的思路。要多关注和分析网站异常流量，根据流量特性，添加或调整规则。
+- 当免费CF用户不满足需求时，可升级为pro用户，获取更多精细化控制和付费盾。
+- 从Linux.do站的防御经验来看，OVH高防服务器表现很好。
+- 进阶操作： [fail2ban](https://github.com/fail2ban/fail2ban) 对接 cloudflare 防御
+- CF防火墙文档：[Custom rules](https://developers.cloudflare.com/waf/custom-rules/) · Cloudflare Web Application Firewall (WAF) docs 1
+
+### 名词解释
+
+- CF质询拦截模式，俗称CF的5秒盾
+- L4攻击 和 L7攻击
+
+先从 计算机网络体系 说起，这里以 OSI体系结构（七层）为例：
+
+![](https://img.vmail.dev/api/img/DkheyP)
+
+**L4攻击：**
+
+从上图可以看出L4是运输层，该层有两种传输协议TCP 和 UDP，依赖于IP来完成寻址。
+L4层攻击往往是服务器IP攻击，过大UDP或TCP流量包导致服务器直接卡死、宕机、或IP被机房“黑洞”。
+藏匿原站IP，是有必要。
+
+**L7攻击：**
+
+从图片可以看到7层是应用层，面向用户的。网站域名访问就是应用层。
+L7攻击以网站域名为目标的攻击模式，利用脚本或肉鸡，对目标站点进行大批量超常规的高并发请求。
+
+- DDOS与DOS：[什么是分布式拒绝服务 (DDoS) 攻击？](https://www.cloudflare-cn.com/learning/ddos/what-is-a-ddos-attack/)
+- CC攻击是DDOS攻击的一种，应该算是一个应用层的DDOS
