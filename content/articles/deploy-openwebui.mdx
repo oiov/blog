@@ -103,6 +103,21 @@ open-webui 使用的是 SQLite，成功构建容器后会在前面创建的 `ope
 添加后，可以方便的查看数据库内容，比如重置管理员密码，官方文档提供的重置密码步骤([文档](https://docs.openwebui.com/troubleshooting/#reset-admin-password))需要安装`htpasswd`工具，
 这里直接手动修改即可（不知道怎么加密可以先注册另外一个账号，复制加密后的密码即可）
 
-最后，如果你没有 API，推荐使用博主搭建的免费中转：[Sorapi](https://platform.sorapi.dev)
+## 更新
+
+OpenWebUI 今天 (6/3) 进行了较大更新，如果是采用我这种方式部署的佬友们，可以参考下面的方式更新你的镜像：
+
+进入ssh终端
+```bash
+# 进入之前创建的文件夹
+cd openwebui
+
+# 拉取最新镜像
+docker-compose pull
+
+# 重启
+docker compose up -d
+```
+更新后的功能正在探索中，等后续安排上 https://chat.sorapi.dev
 
 > 文章首发：[Yesmore/deploy-openwebui](https://dev.yesmore.cc/articles/deploy-openwebui)，转载请注明出处
