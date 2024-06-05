@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props) {
   return siteData(
     `${
       allProjects.filter((p) => p.slug === slug)[0].title ?? "Untitled"
-    } | yesmore`
+    } | oiov`
   );
 }
 

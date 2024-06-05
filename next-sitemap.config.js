@@ -3,7 +3,7 @@
  * @see https://github.com/iamvishnusankar/next-sitemap#readme
  */
 module.exports = {
-  siteUrl: "https://yesmore.cc",
+  siteUrl: "https://blog.oiov.dev",
   changefreq: "daily",
   priority: 0.7,
   exclude: ["/server-sitemap.xml", "/404"],
@@ -23,7 +23,7 @@ module.exports = {
     await config.transform(config, "/"),
   ],
   robotsTxtOptions: {
-    additionalSitemaps: ["https://yesmore.cc/sitemap.xml"],
+    additionalSitemaps: ["https://blog.oiov.dev/sitemap.xml"],
     policies: [
       {
         userAgent: "*",

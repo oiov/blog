@@ -5,7 +5,7 @@ import { Card } from "../components/card";
 import { siteData } from "@/config/site";
 import { Metadata } from "next";
 
-export const metadata: Metadata = siteData("关于我 | yesmore");
+export const metadata: Metadata = siteData("关于我 | oiov");
 
 const socials = [
   {
@@ -28,9 +28,9 @@ const socials = [
   },
   // {
   //   icon: <Github size={20} />,
-  //   href: "https://github.com/yesmore",
+  //   href: "https://github.com/oiov",
   //   label: "Github",
-  //   handle: "yesmore",
+  //   handle: "oiov",
   // },
 ];
 

@@ -4,17 +4,17 @@ export const siteData = (title: string): Metadata => {
   return {
     title: {
       default: title,
-      template: "%s | yesmore",
+      template: "%s | oiov",
     },
     description: "Co-founder of inke.app",
     openGraph: {
-      title: "yesmore",
+      title: "oiov",
       description: "Co-founder of inke.app",
-      url: "https://dev.yesmore.cc",
-      siteName: "yesmore",
+      url: "https://blog.oiov.dev",
+      siteName: "oiov",
       images: [
         {
-          url: "https://dev.yesmore.cc/og.png",
+          url: "https://blog.oiov.dev/og.png",
           width: 1920,
           height: 1080,
         },
@@ -34,7 +34,7 @@ export const siteData = (title: string): Metadata => {
       },
     },
     twitter: {
-      title: "Yesmore",
+      title: "Oiov",
       card: "summary_large_image",
     },
     icons: {

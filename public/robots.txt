@@ -19,7 +19,7 @@ User-agent: DotBot
 Disallow: /
 
 # Host
-Host: https://yesmore.cc
+Host: https://blog.oiov.dev
 
 # Sitemaps
-Sitemap: https://yesmore.cc/sitemap.xml
+Sitemap: https://blog.oiov.dev/sitemap.xml

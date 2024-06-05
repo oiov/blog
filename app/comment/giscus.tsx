@@ -5,7 +5,7 @@ export default function GiscusComment() {
   return (
     <Giscus
       id="comments"
-      repo="yesmore/blogv2"
+      repo="oiov/blogv2"
       repoId="R_kgDOLTw5nQ"
       category="Announcements"
       categoryId="DIC_kwDOLTw5nc4CdTjI"

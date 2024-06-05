@@ -9,7 +9,7 @@ import { Eye } from "lucide-react";
 import { siteData } from "@/config/site";
 import { Metadata } from "next";
 
-export const metadata: Metadata = siteData("项目集 | yesmore");
+export const metadata: Metadata = siteData("项目集 | oiov");
 
 const redis = Redis.fromEnv();
 

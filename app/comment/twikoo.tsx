@@ -13,7 +13,7 @@ export default function TwikooComment() {
       const initScript = document.createElement("script");
       initScript.innerHTML = `
         twikoo.init({
-          envId: "https://comment.yesmore.cc",
+          envId: "https://comment.oiov.dev",
           el: '#twikoo-comment',
           pageSize: 10,
           includeReply: true,

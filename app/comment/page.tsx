@@ -7,7 +7,7 @@ import { ExternalLink } from "lucide-react";
 import DefaultIcon from "../components/avatar-icon";
 import TwikooComment from "./twikoo";
 
-export const metadata: Metadata = siteData("留言板 | yesmore");
+export const metadata: Metadata = siteData("留言板 | oiov");
 
 const links = [
   {

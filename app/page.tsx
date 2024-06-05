@@ -4,7 +4,7 @@ import Particles from "./components/particles";
 import { siteData } from "@/config/site";
 import { Metadata } from "next";
 
-export const metadata: Metadata = siteData("yesmore");
+export const metadata: Metadata = siteData("oiov");
 
 const navigation = [
   { name: "项目集", href: "/projects" },
@@ -35,7 +35,7 @@ export default function Home() {
         quantity={100}
       />
       <h1 className="z-10 text-5xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text ">
-        yesmore
+        𝒐𝒊𝒐𝒗.
       </h1>
 
       <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
@@ -44,7 +44,7 @@ export default function Home() {
           你做出一个很酷的东西出来，想给他起什么名都可以
         </h2>
         <div className="text-sm text-zinc-500">
-          Copyright © yesmore 2021-2024
+          Copyright © oiov 2021-2024
           <Link
             className="text-gray-300 text-sm hover:text-gray-500 mx-1"
             href="https://status.vmail.dev"
