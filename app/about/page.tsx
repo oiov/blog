@@ -16,9 +16,9 @@ const socials = [
   },
   {
     icon: <Mail size={20} />,
-    href: "mailto:oiov@duck.com",
+    href: "mailto:hi@oiov.dev",
     label: "Email",
-    handle: "oiov@duck.com",
+    handle: "hi@oiov.dev",
   },
   {
     icon: <Github size={20} />,
