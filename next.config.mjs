@@ -7,11 +7,11 @@ const nextConfig = {
     domains: [
       "avatars.githubusercontent.com",
       "mggg.cloud",
-      "zhulijun.club",
+      "chaoszhu.com",
       "www.aitimi.cn",
       "gcloud-1303456836.cos.ap-chengdu.myqcloud.com",
       "blog.myim.online",
-      "img.vmail.dev"
+      "img.vmail.dev",
     ],
   },
   experimental: {
