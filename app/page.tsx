@@ -47,7 +47,7 @@ export default function Home() {
           Copyright © oiov 2021-2024
           <Link
             className="text-gray-300 text-sm hover:text-gray-500 mx-1"
-            href="https://status.vmail.dev"
+            href="https://status.wr.do"
             target="_blank">
             · Status
           </Link>
