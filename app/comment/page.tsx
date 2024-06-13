@@ -12,8 +12,8 @@ export const metadata: Metadata = siteData("留言板 | oiov");
 const links = [
   {
     title: "Chaoszhu'Blog",
-    url: "https://zhulijun.club",
-    icon: "https://zhulijun.club/avatar.png",
+    url: "https://chaoszhu.com",
+    icon: "https://chaoszhu.com/avatar.png",
   },
   {
     title: "mggg's Blog",
