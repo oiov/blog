@@ -1,0 +1,53 @@
+---
+title: 使用 Vercel 反代并加速你的站点
+description: 你是否发现即使 Vercel 绑定了自定义域名，但你的网站仍然加载缓慢？
+date: "2024-6-17"
+published: true
+repository: oiov/oichat-proxy
+---
+
+教程分为两步：
+
+- 一、Vercel 实现免费反代网站
+- 二、修改 Vercel 域名解析（CNAME）实现网站加速
+
+前提条件是：
+
+- 网站部署在私有 vps 服务器，可以绑定域名
+- 如果网站本身部署在 Vercel，仅需要加速，请直接查看 **修改 Vercel 域名解析（CNAME）实现网站加速**
+
+## 一、Vercel 实现免费反代网站
+
+步骤非常简单，直接 fork 我的 github 仓库:
+
+```bash
+https://github.com/oiov/oichat-proxy
+```
+
+然后修改 `vercel.json` 文件内容，其中的 `https://chat.sorapi.dev/$1` 值为你的服务器 IP+端口，比如 `https://192.168.1.100:8080/$1`，或你绑定的域名；
+
+在 Vercel 中创建一个项目关联到这个仓库。然后直接部署，等待几十秒，现在 Vercel 就可以反代你的网站了。
+
+
+## 二、修改 Vercel 域名解析（CNAME）实现网站加速
+
+现在你的网站已经反代成功了，但使用自动分配的域名国内无法访问，你需要绑定一个自定义域名，相关步骤不再赘述。
+
+但是你可能会发现即使绑定了域名访问速度依然hibit，这时你需要修改 Vercel 域名解析（CNAME）实现网站加速。
+
+将原来解析至 `cname.vercel-dns.com` 改为 `vercel.cdn.yt-blog.top` 即可。
+
+#### 加速原理
+
+Vercel 在大陆周围还有很多节点，其中包含中国台湾、韩国、日本、新加坡等，这些节点的访问延迟在接受范围，且相对香港节点来说带宽更充足。
+
+Vercel 的 Anycast 会自动将节点解析至距离最近的香港服务器，但如果手动解析则太过麻烦。
+
+`vercel.cdn.yt-blog.top` 经过不断测速（大约消耗了200MB流量）手动解析，并通过 D 监控检查状态，无法访问时会及时暂停节点。使用时自动解析至附近可用节点，尽可能的选择优质节点。
+
+这更加类似于CF自选IP，而不是真正的节点，节点IP基于Cyfan的[Vercel All IP](https://gist.github.com/ChenYFan/fc2bd4ec1795766f2613b52ba123c0f8)
+
+
+#### 参考资料
+
+- [Fgaoxing](https://www.yt-blog.top/9952/)
