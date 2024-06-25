@@ -56,7 +56,9 @@ export default async function PostPage({ params }: Props) {
         <Mdx code={project.body.code} />
       </article>
 
-      <div className="max-w-screen-md w-full mx-auto py-6 px-4 border-t border-zinc-200">
+      <div
+        id="comments"
+        className="max-w-screen-md w-full mx-auto py-6 px-4 border-t border-zinc-200">
         <TwikooComment />
       </div>
     </div>
